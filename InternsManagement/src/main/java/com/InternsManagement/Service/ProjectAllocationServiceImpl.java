@@ -66,7 +66,7 @@ public class ProjectAllocationServiceImpl implements ProjectAllocationService {
 	}
 
 	@Override
-	public void updateProjectMentor(Integer projectId, Integer mentorId) throws InternsManagementException {
+	public Integer updateProjectMentor(Integer projectId, Integer mentorId) throws InternsManagementException {
 		Optional<Mentor> optional=mentorRepository.findById(mentorId);
 		Mentor mentor=optional.orElseThrow(()-> new InternsManagementException("Service.MENTOR_NOT_FOUND"));
 		if(mentor.getNumberOfProjectsMentored()>=3) {
@@ -76,12 +76,12 @@ public class ProjectAllocationServiceImpl implements ProjectAllocationService {
 		Project proj=optionalProject.orElseThrow(()->new InternsManagementException("Service.PROJECT_NOT_FOUND"));
 		
 		proj.setMentor(mentor);
-		mentor.setNumberOfProjectsMentored(mentor.getNumberOfProjectsMentored()+1);		
+		return mentor.setNumberOfProjectsMentored(mentor.getNumberOfProjectsMentored()+1);		
 		
 	}
 
 	@Override
-	public void deleteProject(Integer projectId) throws InternsManagementException {
+	public Integer deleteProject(Integer projectId) throws InternsManagementException {
 		Optional<Project> optionalProject=projectRepository.findById(projectId);
 		Project proj=optionalProject.orElseThrow(()->new InternsManagementException("Service.PROJECT_NOT_FOUND"));
 		if(proj.getMentor()==null) {
@@ -94,6 +94,7 @@ public class ProjectAllocationServiceImpl implements ProjectAllocationService {
 			projectRepository.delete(proj);
 			
 		}
+		return proj.getProjectId();
 		
 		
 	}
