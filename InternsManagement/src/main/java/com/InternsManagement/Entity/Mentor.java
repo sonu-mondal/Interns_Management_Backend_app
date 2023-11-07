@@ -47,8 +47,8 @@ public class Mentor {
 		return numberOfProjectsMentored;
 	}
 
-	public void setNumberOfProjectsMentored(Integer numberOfProjectsMentored) {
-		this.numberOfProjectsMentored = numberOfProjectsMentored;
+	public Integer setNumberOfProjectsMentored(Integer numberOfProjectsMentored) {
+		return this.numberOfProjectsMentored = numberOfProjectsMentored;
 	}
 
 	@Override
