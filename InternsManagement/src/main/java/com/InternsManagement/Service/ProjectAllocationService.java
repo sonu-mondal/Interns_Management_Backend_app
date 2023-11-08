@@ -12,9 +12,9 @@ public interface ProjectAllocationService {
 	
 	public List<MentorDTO> getMentors(Integer numberOfProjectsMentored) throws InternsManagementException;
 	
-	public void updateProjectMentor(Integer projectId, Integer mentorId) throws InternsManagementException;
+	public Integer updateProjectMentor(Integer projectId, Integer mentorId) throws InternsManagementException;
 	
-	public void deleteProject(Integer projectId) throws InternsManagementException;
+	public Integer deleteProject(Integer projectId) throws InternsManagementException;
 	
 	
 	

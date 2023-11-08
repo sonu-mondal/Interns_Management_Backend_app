@@ -23,7 +23,7 @@ public class Project {
 	private LocalDate releaseDate;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="mentor_id")
+	@JoinColumn(name="mentor")
 	private Mentor mentor;
 
 	public Project(Integer projectId, String projectName, Integer ideaOwner, LocalDate releaseDate, Mentor mentor) {
