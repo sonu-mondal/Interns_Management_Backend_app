@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -f /home/runner/work/Interns_Management_Backend_app/pom.xml
+      run: mvn -f Interns_Management_Backend_app/InternsManagement/pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
